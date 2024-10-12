@@ -2,18 +2,14 @@ package EmojiMod.patches.BaseMod;
 
 import EmojiMod.patches.com.megacrit.cardcrawl.RenderDescriptionExprEditor;
 import EmojiMod.patches.com.megacrit.cardcrawl.ReplaceDynamicVariableExprEditor;
-import EmojiMod.patches.com.megacrit.cardcrawl.cards.AbstractCard.AbstractCardPatches;
-import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.RenderCustomDynamicVariable;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.expr.ExprEditor;
 
 public class RenderCustomDynamicVariablePatches {
 
     @SpirePatch(
             clz = basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.RenderCustomDynamicVariable.Inner.class,
-            method = "myRenderDynamicVariable"
+            method = "subRenderDynamicVariable"
     )
     public static class ReplaceNumberWithEmojiAbstractCardPatch {
         public static ExprEditor Instrument() {
@@ -23,7 +19,7 @@ public class RenderCustomDynamicVariablePatches {
 
     @SpirePatch(
             clz = basemod.patches.com.megacrit.cardcrawl.screens.SingleCardViewPopup.RenderCustomDynamicVariable.Inner.class,
-            method = "myRenderDynamicVariable"
+            method = "subRenderDynamicVariable"
     )
     public static class ReplaceNumberWithEmojiSingleCardViewPopupPatch {
         public static ExprEditor Instrument() {
@@ -33,7 +29,7 @@ public class RenderCustomDynamicVariablePatches {
 
     @SpirePatch(
             clz = basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.RenderCustomDynamicVariable.Inner.class,
-            method = "myRenderDynamicVariable"
+            method = "subRenderDynamicVariable"
     )
     public static class LineSpacingDynamicVarAbstractCardPatch {
         public static ExprEditor Instrument() {
@@ -48,7 +44,7 @@ public class RenderCustomDynamicVariablePatches {
 
     @SpirePatch(
             clz = basemod.patches.com.megacrit.cardcrawl.screens.SingleCardViewPopup.RenderCustomDynamicVariable.Inner.class,
-            method = "myRenderDynamicVariable"
+            method = "subRenderDynamicVariable"
     )
     public static class LineSpacingDynamicVarSingleCardViewPopupPatch {
         public static ExprEditor Instrument() {
